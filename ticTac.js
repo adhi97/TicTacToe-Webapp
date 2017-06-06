@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
     // Creating closure aka class kinda thingy to store all tic tac teo related stuff.
-    var Tictacteo = function() 
+    var Tictacteo = function()
     {
 
         // Multi Player or Single Player Game ?
@@ -28,13 +28,13 @@ $(document).ready(function() {
 
 
         /**
-        * This function does automated move for computer player. 
+        * This function does automated move for computer player.
         * I am using math.random here to get any random unselected grid of the board
-        * and mark computers selection here. 
+        * and mark computers selection here.
         */
         this.computerPlayerMove = function() {
             var unselectedGrids = "";
-            unselectedGrids = $('#tictactoe-board td[class=]').map(function() {
+            unselectedGrids = $('#tictactoe-board td[class=""]').map(function() {
                       return $(this).attr("id");
             }).get();
 
@@ -78,7 +78,7 @@ $(document).ready(function() {
             }
 
             this.PlayerMove(cell);
-            
+
         }
 
         /**
@@ -103,7 +103,7 @@ $(document).ready(function() {
             var selectedByO = $("#tictactoe-board td.selectedByO");
 
             if(this.CurrentPlayer == this.HumanMarker) {
-                
+
                 if(selectedByX.length >= 3) {
                     selectedGrids = $('#tictactoe-board td.selectedByX').map(function() {
                       return $(this).attr("id").substring(5);
@@ -114,7 +114,7 @@ $(document).ready(function() {
                 }
 
             } else {
-                
+
                 if(selectedByO.length >= 3) {
                     selectedGrids = $('#tictactoe-board td.selectedByO').map(function() {
                       return $(this).attr("id").substring(5);
@@ -139,7 +139,7 @@ $(document).ready(function() {
         */
         this.checkWinPatternMatch = function(selectedGrids) {
             winnerGridCount = 0;
-            var temp = this; 
+            var temp = this;
             $.each(this.WinPatterns, function(index, value) {
                 $.each(value, function(index, pattern) {
                     if($.inArray(pattern.toString(), selectedGrids) > -1) {
